@@ -17,6 +17,7 @@ public class Construct427 {
             return null;
         return recursive(grid,0,0,grid.length);
     }
+//    递归
     public static Node recursive(int[][] grid,int startrow,int startcol,int length){
         int num = grid[startrow][startcol];
         int i,j;
