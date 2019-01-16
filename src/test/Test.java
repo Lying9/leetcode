@@ -19,6 +19,31 @@ import java.util.stream.Collectors;
  */
 public class Test {
     public static void main(String[] args) {
+        /*String s1 = new String("777");
+        String s2 = "aaa777";
+        String s3 =  "aaa"+s1;
+        System.out.println(s3==s2);*/
+
+      /*  String s1 = "abcd";
+        char[] ch = {'a','b','c','d'};
+        char[] cc = s1.toCharArray();
+//        System.out.println(ch==cc);
+        System.out.println(ch.equals(cc));*/
+
+       /* int[] a = {1,2,3};
+        int[] b = {1,2,3};
+        System.out.println(a.equals(b));*/
+
+        A m = new A(1);
+        A n = new A(1);
+        System.out.println(m == n);
+        System.out.println(m.equals(n));
+        String a = "222";
+        String b = "222";
+        System.out.println(a==b);
+        System.out.println(a.equals(b));
+
+
   /*      System.out.println(new A().getClass());
         A a = new B();
         System.out.println(a.getClass());
@@ -51,12 +76,15 @@ public class Test {
     }
 
     static class A {
+        private int a;
+
+        public A(int a) {
+            this.a = a;
+        }
 
     }
 
-    static class B extends A {
 
-    }
        /* int[] a = new int[2];
         for (int i = 0; i <a.length ; i++) {
             a[i] = i;
