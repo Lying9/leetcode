@@ -14,7 +14,7 @@ public class FlipLights672 {
 
     }
 
-    //    1.暴力破解  accept 5945 ms
+    //    暴力破解  accept 5945 ms
 //    可把string 和Stringbuilder的结合  改为  String和char数组  的结合
     public static int flipLights(int n, int m) {
         Set<String> init = new HashSet<>();
@@ -56,4 +56,24 @@ public class FlipLights672 {
         }
         return sb;
     }
+
+//    规律：为什么是这样？？
+    /**   n= 1   2    3     4  5
+     * m= 1  2   3    4     4   4...
+     *    2  2   4    7     7   7...
+     *    3  2   4    8     8   8 ...
+     *    4  2   4   ...
+     *       ...
+     */
+    public int flipLights1(int n, int m) {
+        if(m==0) return 1;
+        if(n==1) return 2;
+        if(n==2&&m==1) return 3;
+        if(n==2) return 4;
+        if(m==1) return 4;
+        if(m==2) return 7;
+        if(m>=3) return 8;
+        return 8;
+    }
+
 }

@@ -19,6 +19,32 @@ import java.util.stream.Collectors;
  */
 public class Test {
     public static void main(String[] args) {
+
+//        测试final
+         /*final FinalTest fs = new FinalTest(5);
+         fs.print();
+         fs.setValue(6);
+         fs.print();*/
+
+
+
+//        深浅拷贝  String 深拷贝
+        /*String s = "123";
+        String s1 = s;
+        s1 =  s1.substring(1);
+        System.out.println(s);
+        System.out.println(s1);*/
+        /*String s = "AQS";
+        toLow(s);
+        System.out.println(s);  //AQS*/
+
+//        测试传值
+        /*A a = new A(3);
+        System.out.println(a.toString());
+        compute(a);
+        System.out.println(a.toString());
+*/
+
         /*String s1 = new String("777");
         String s2 = "aaa777";
         String s3 =  "aaa"+s1;
@@ -34,14 +60,14 @@ public class Test {
         int[] b = {1,2,3};
         System.out.println(a.equals(b));*/
 
-        A m = new A(1);
+      /*  A m = new A(1);
         A n = new A(1);
         System.out.println(m == n);
         System.out.println(m.equals(n));
         String a = "222";
         String b = "222";
         System.out.println(a==b);
-        System.out.println(a.equals(b));
+        System.out.println(a.equals(b));*/
 
 
   /*      System.out.println(new A().getClass());
@@ -75,11 +101,23 @@ public class Test {
 
     }
 
-    static class A {
-        private int a;
+    //    测试方法传值
+    public static void compute(A a) {
+        a.value = a.value + 1;
+    }
 
-        public A(int a) {
-            this.a = a;
+    public static void toLow(String s ){
+        s = s.toLowerCase();
+    }
+
+    static class A {
+        private int value;
+
+        public A(int value) {
+            this.value = value;
+        }
+        public String toString(){
+            return String.valueOf(this.value);
         }
 
     }
@@ -120,6 +158,19 @@ public class Test {
         list.add(3);
         list.add(4);
         list1.add(list);
+    }
+
+    static class FinalTest{
+        int value;
+        public FinalTest(int value){
+            this.value = value;
+        }
+        public void setValue(int value){
+            this.value = value;
+        }
+        public void print(){
+            System.out.println(this.value);
+        }
     }
 
 }
