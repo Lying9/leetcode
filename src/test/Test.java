@@ -20,6 +20,14 @@ import java.util.stream.Collectors;
 public class Test {
     public static void main(String[] args) {
 
+        String s = "12,34,5";
+        String[] c = s.split(",");
+        for(String l:c){
+            System.out.println(Integer.valueOf(l));
+        }
+
+
+
 //        测试final
          /*final FinalTest fs = new FinalTest(5);
          fs.print();
