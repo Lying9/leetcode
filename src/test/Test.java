@@ -17,15 +17,27 @@ import java.util.stream.Collectors;
 /**
  * Created by Administrator on 2017/10/27.
  */
+
 public class Test {
+
     public static void main(String[] args) {
 
-        String s = "12,34,5";
+//        String s = "acv";
+        String s = new String("avc");
+        String  s1 = s.intern();
+        String str  = "acv";
+        String s2 = "acv";
+        System.out.println(s1 == str);
+        System.out.println(s2 == str);
+        System.out.println(s2 == s1);
+
+
+    /*    String s = "12,34,5";
         String[] c = s.split(",");
         for(String l:c){
             System.out.println(Integer.valueOf(l));
         }
-
+*/
 
 
 //        测试final
