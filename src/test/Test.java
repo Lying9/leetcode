@@ -1,35 +1,105 @@
 package test;
 
-import array.medium.MyCalendar;
-import sun.util.resources.ar.CalendarData_ar;
-
-import javax.swing.*;
-import javax.xml.crypto.Data;
-import java.io.File;
-import java.io.OutputStream;
-import java.lang.reflect.Array;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.math.BigInteger;
+import java.lang.reflect.Field;
 import java.util.*;
-import java.util.stream.Collectors;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Administrator on 2017/10/27.
  */
 
+
+
 public class Test {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+
+
+        System.out.println(6*0.7*10/10);
+      /*  ArrayList<Integer> list = new ArrayList<>();
+        list.listIterator();
+*/
+
+        //反射  设置私有属性
+   /*     Class clazz = Class.forName("test.Person");
+        Person obj = (Person) clazz.newInstance();
+//      clazz.getFields();    返回表示类或接口的public的属性
+//      clazz.getDeclaredFields()  返回表示类或接口的所有属性
+        Field[] fileds = clazz.getDeclaredFields();
+        for (int i = 0; i < fileds.length; i++) {
+//        fileds[i].setAccessible(true);  设置访问权限为true;
+            fileds[i].setAccessible(true);
+            fileds[i].set(obj, "1");
+        }
+        System.out.println(obj.toString());
+*/
+
+      /*  String str = "<p> this is a test ...</p>";
+        String s ="\\w+";
+        Pattern  p  = Pattern.compile("(?<=<("+s+")>)");
+        Matcher m = p.matcher(str);
+        if(m.find())
+
+            System.out.println(m.group());*/
+
+
+      /*Student s = new Student(1);
+      Student ss = new Student(1);
+        System.out.println(s.hashCode());
+        System.out.println(ss.hashCode());//没有重写hashcode是不一样的,重写hashcode后是一样的*/
+
+       /* boolean a= true;
+       boolean b = true;
+        System.out.println(a&b);*/
+
+
+
+      /* Student p= new Student(1);
+        System.out.println(p instanceof  Person);*/
+
+      /*  TreeMap<Student,Integer> map = new TreeMap<>(new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                return o1.age - o2.age;
+            }
+        });*/
+      /*HashMap<Student,Integer> map = new HashMap<>();
+        Student st1 = new Student(1);
+        Student st2 = new Student(2);
+        Student st3 = new Student(3);
+        map.put(st1,1);
+        map.put(st2,2);
+        map.put(st3,3);
+      *//*  for(Student s:map.keySet()){
+            System.out.println(s.toString() + map.get(s) );
+        }*//*
+        System.out.println(map);
+
+        st1.age = 90;
+       *//* for(Student s:map.keySet()){
+            System.out.println(s.toString() + map.get(s) );
+        }*//*
+        System.out.println(map);*/
+        /*ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(3);
+        System.out.println(list);*/
+    /*    Set<Integer>  set = new HashSet<>();
+        set.add(1);
+        set.add(2);
+        System.out.println(set);*/
+
 
 //        String s = "acv";
-        String s = new String("avc");
+       /* String s = new String("avc");
         String  s1 = s.intern();
         String str  = "acv";
         String s2 = "acv";
         System.out.println(s1 == str);
         System.out.println(s2 == str);
-        System.out.println(s2 == s1);
+        System.out.println(s2 == s1);*/
 
 
     /*    String s = "12,34,5";
@@ -45,7 +115,6 @@ public class Test {
          fs.print();
          fs.setValue(6);
          fs.print();*/
-
 
 
 //        深浅拷贝  String 深拷贝
@@ -122,7 +191,7 @@ public class Test {
     }
 
     //    测试方法传值
-    public static void compute(A a) {
+    /*public static void compute(A a) {
         a.value = a.value + 1;
     }
 
@@ -140,7 +209,7 @@ public class Test {
             return String.valueOf(this.value);
         }
 
-    }
+    }*/
 
 
        /* int[] a = new int[2];
@@ -180,19 +249,61 @@ public class Test {
         list1.add(list);
     }
 
-    static class FinalTest{
+    static class FinalTest {
         int value;
-        public FinalTest(int value){
+
+        public FinalTest(int value) {
             this.value = value;
         }
-        public void setValue(int value){
+
+        public void setValue(int value) {
             this.value = value;
         }
-        public void print(){
+
+        public void print() {
             System.out.println(this.value);
         }
     }
 
 }
+
+class Person {
+
+    public String getSex() {
+        return sex;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public String name;
+    protected String sex;
+    private String age;
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String toString() {
+        return (this.getName() + "  " + this.getSex() + "  " + this.getAge());
+    }
+
+}
+/*class Student extends Person{
+     int age;
+    public Student(String name,int age){
+        super(name);
+        this.age = age;
+    }
+    public String toString(){
+
+        return "Student [age ="+age+"]";
+    }
+    public int hashCode(){
+        return Integer.hashCode(age);
+    }
+}*/
+
 
 
