@@ -1,10 +1,14 @@
 package pickone.medium;
 
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * Created by ying on 2019/5/6.
  */
 public class LongestPalindrome5 {
     public static void main(String[] args) {
+
         String s = "aaaa";
         System.out.println(longestPalindrome(s));
     }
